@@ -15,7 +15,7 @@ public enum AssetType {
 
     public static class AssetTypeValues {
         public static final String CAR = "CAR";
-        public static final String PLANE = "YACHT";
+        public static final String PLANE = "PLANE";
         public static final String YACHT = "YACHT";
     }
 }

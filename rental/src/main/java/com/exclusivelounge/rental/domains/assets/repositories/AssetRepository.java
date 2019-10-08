@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AssetRepository extends CrudRepository<Asset, Long> {
 
-    Iterable<Asset> findAllByAssetTypeAnAndRentalState(AssetType assetType, RentalState rentalState);
+    Iterable<Asset> findAllByAssetTypeAndRentalState(AssetType assetType, RentalState rentalState);
 }

@@ -22,25 +22,11 @@ public class AssetController {
 
     @GetMapping(path = "/{rentalState}/{assetType}")
     public Iterable<Asset> getAvailableAssets(@PathVariable AssetType assetType, @PathVariable RentalState rentalState) {
-        return assetRepository.findAllByAssetTypeAnAndRentalState(assetType, rentalState);
+        return assetRepository.findAllByAssetTypeAndRentalState(assetType, rentalState);
     }
 
-    @PostMapping (path = "/assets")
-    public ResponseEntity<Object> createCar(@RequestBody Car car) {
-        return createVehicle(car);
-    }
-
-    @PostMapping (path = "/assets")
-    public ResponseEntity<Object> createYacht(@RequestBody Yacht yacht) {
-        return createVehicle(yacht);
-    }
-
-    @PostMapping (path = "/assets")
-    public ResponseEntity<Object> createPlane(@RequestBody Plane plane) {
-        return createVehicle(plane);
-    }
-
-    private ResponseEntity<Object> createVehicle(Vehicle vehicle) {
+    @PostMapping (path = "/")
+    public ResponseEntity<Object> createVehicle(Vehicle vehicle) {
         validateVehicle(vehicle);
         assetRepository.save(vehicle);
         return ResponseEntity.noContent().build();
