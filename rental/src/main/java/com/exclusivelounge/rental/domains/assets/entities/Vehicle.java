@@ -1,7 +1,5 @@
 package com.exclusivelounge.rental.domains.assets.entities;
 
-import com.exclusivelounge.rental.validation.contraints.AssetTypeMatch;
-
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -14,7 +12,6 @@ public abstract class Vehicle extends Asset{
     @JoinColumns({
             @JoinColumn(name = "BRAND_MODEL_ID", referencedColumnName = "ID")
     })
-    @AssetTypeMatch
     private BrandModel brandModel;
 
     public BrandModel getBrandModel() {
