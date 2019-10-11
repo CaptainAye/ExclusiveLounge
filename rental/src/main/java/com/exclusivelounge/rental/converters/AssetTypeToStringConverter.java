@@ -3,9 +3,9 @@ package com.exclusivelounge.rental.converters;
 import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
 import org.springframework.core.convert.converter.Converter;
 
-public class StringToAssetTypeConverter implements Converter<String, AssetType>{
+public class AssetTypeToStringConverter implements Converter<AssetType, String> {
     @Override
-    public AssetType convert(String s) {
-        return AssetType.valueOf(s.toUpperCase());
+    public String convert(AssetType assetType) {
+        return assetType.name();
     }
 }

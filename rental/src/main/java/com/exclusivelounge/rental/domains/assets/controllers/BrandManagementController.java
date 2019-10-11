@@ -1,8 +1,8 @@
 package com.exclusivelounge.rental.domains.assets.controllers;
 
-import com.exclusivelounge.rental.domains.assets.entities.Brand;
-import com.exclusivelounge.rental.domains.assets.entities.BrandModel;
-import com.exclusivelounge.rental.domains.assets.enums.AssetType;
+import com.exclusivelounge.rental.domains.assets.model.entities.Brand;
+import com.exclusivelounge.rental.domains.assets.model.entities.BrandModel;
+import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
 import com.exclusivelounge.rental.domains.assets.services.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -7,7 +7,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL55Dialect
 
-
   datasource:
     url: ${EXCDB}
     username: ${EXCNAME}

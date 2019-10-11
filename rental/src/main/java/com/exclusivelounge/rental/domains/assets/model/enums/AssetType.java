@@ -1,4 +1,4 @@
-package com.exclusivelounge.rental.domains.assets.enums;
+package com.exclusivelounge.rental.domains.assets.model.enums;
 
 public enum AssetType {
     PLANE(AssetTypeValues.PLANE), CAR(AssetTypeValues.CAR), YACHT(AssetTypeValues.YACHT);

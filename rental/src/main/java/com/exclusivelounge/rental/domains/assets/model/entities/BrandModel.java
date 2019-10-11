@@ -1,22 +1,41 @@
-package com.exclusivelounge.rental.domains.assets.entities;
+package com.exclusivelounge.rental.domains.assets.model.entities;
+
+import com.exclusivelounge.rental.validation.annotations.IsValidYear;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "BRAND_MODEL")
 public class BrandModel {
+
+    public BrandModel() {
+    }
+
+    public BrandModel(Brand brand, String modelName, Integer yearStarted, Integer yearEnded) {
+        this.modelName = modelName;
+        this.yearStarted = yearStarted;
+        this.yearEnded = yearEnded;
+        this.brand = brand;
+    }
+
+    public BrandModel(Brand brand, String modelName, Integer yearStarted) {
+        this(brand, modelName, yearStarted, null);
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "MODEL_NAME", nullable = false)
     private String modelName;
 
     @Column(name = "YEAR_STARTED", nullable = false)
-    private long yearStarted;
+    @IsValidYear
+    private Integer yearStarted;
 
     @Column(name = "YEAR_ENDED")
-    private long yearEnded;
+    @IsValidYear
+    private Integer yearEnded;
 
     @ManyToOne
     @JoinColumn(name = "BRAND_ID", referencedColumnName = "ID", nullable = false)
@@ -42,7 +61,7 @@ public class BrandModel {
         return yearStarted;
     }
 
-    public void setYearStarted(long yearStarted) {
+    public void setYearStarted(Integer yearStarted) {
         this.yearStarted = yearStarted;
     }
 
@@ -50,7 +69,7 @@ public class BrandModel {
         return yearEnded;
     }
 
-    public void setYearEnded(long yearEnded) {
+    public void setYearEnded(Integer yearEnded) {
         this.yearEnded = yearEnded;
     }
 

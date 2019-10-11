@@ -1,7 +1,7 @@
 package com.exclusivelounge.rental.controller.controllers;
 
-import com.exclusivelounge.rental.domains.assets.exceptions.BrandNotFoundException;
-import com.exclusivelounge.rental.domains.assets.exceptions.BrandTypeIncorrectException;
+import com.exclusivelounge.rental.domains.assets.model.exceptions.BrandNotFoundException;
+import com.exclusivelounge.rental.domains.assets.model.exceptions.BrandTypeIncorrectException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

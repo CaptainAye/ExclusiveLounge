@@ -1,4 +1,4 @@
-package com.exclusivelounge.rental.domains.assets.exceptions;
+package com.exclusivelounge.rental.domains.assets.model.exceptions;
 
 public class BrandTypeIncorrectException extends RuntimeException {
 }

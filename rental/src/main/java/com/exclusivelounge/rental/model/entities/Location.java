@@ -1,7 +1,7 @@
 package com.exclusivelounge.rental.model.entities;
 
 import com.exclusivelounge.rental.model.embeddable.Address;
-import com.exclusivelounge.rental.domains.assets.enums.AssetType;
+import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
 
 import javax.persistence.*;
 import java.util.Set;

@@ -1,7 +1,7 @@
 package com.exclusivelounge.rental.model.entities;
 
 import com.exclusivelounge.rental.model.embeddable.Arrangement;
-import com.exclusivelounge.rental.domains.assets.entities.Asset;
+import com.exclusivelounge.rental.domains.assets.model.entities.Asset;
 
 import javax.persistence.*;
 

@@ -1,8 +1,8 @@
 package com.exclusivelounge.rental.domains.assets.controllers;
 
-import com.exclusivelounge.rental.domains.assets.entities.*;
-import com.exclusivelounge.rental.domains.assets.enums.AssetType;
-import com.exclusivelounge.rental.domains.assets.exceptions.BrandTypeIncorrectException;
+import com.exclusivelounge.rental.domains.assets.model.entities.*;
+import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
+import com.exclusivelounge.rental.domains.assets.model.exceptions.BrandTypeIncorrectException;
 import com.exclusivelounge.rental.model.enumerations.RentalState;
 import com.exclusivelounge.rental.domains.assets.repositories.AssetRepository;
 import org.springframework.beans.factory.annotation.Autowired;

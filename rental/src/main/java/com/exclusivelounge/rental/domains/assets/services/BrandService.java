@@ -1,9 +1,9 @@
 package com.exclusivelounge.rental.domains.assets.services;
 
-import com.exclusivelounge.rental.domains.assets.entities.Brand;
-import com.exclusivelounge.rental.domains.assets.entities.BrandModel;
-import com.exclusivelounge.rental.domains.assets.enums.AssetType;
-import com.exclusivelounge.rental.domains.assets.exceptions.BrandNotFoundException;
+import com.exclusivelounge.rental.domains.assets.model.entities.Brand;
+import com.exclusivelounge.rental.domains.assets.model.entities.BrandModel;
+import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
+import com.exclusivelounge.rental.domains.assets.model.exceptions.BrandNotFoundException;
 import com.exclusivelounge.rental.domains.assets.repositories.BrandModelRepository;
 import com.exclusivelounge.rental.domains.assets.repositories.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;

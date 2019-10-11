@@ -1,6 +1,6 @@
-package com.exclusivelounge.rental.domains.assets.entities;
+package com.exclusivelounge.rental.domains.assets.model.entities;
 
-import static com.exclusivelounge.rental.domains.assets.enums.AssetType.*;
+import static com.exclusivelounge.rental.domains.assets.model.enums.AssetType.*;
 
 import javax.persistence.*;
 

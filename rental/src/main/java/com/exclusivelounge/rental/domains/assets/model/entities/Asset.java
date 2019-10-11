@@ -1,6 +1,6 @@
-package com.exclusivelounge.rental.domains.assets.entities;
+package com.exclusivelounge.rental.domains.assets.model.entities;
 
-import com.exclusivelounge.rental.domains.assets.enums.AssetType;
+import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
 import com.exclusivelounge.rental.model.enumerations.RentalState;
 
 import javax.persistence.*;
@@ -10,14 +10,26 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "ASSET_TYPE", discriminatorType = DiscriminatorType.STRING)
 public abstract class Asset {
+
+    public Asset() {
+    }
+
+    public Asset( AssetType assetType, RentalState rentalState) {
+        this.assetType = assetType;
+        this.rentalState = rentalState;
+    }
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    protected Long id;
 
     @Column(name = "ASSET_TYPE", updatable = false, insertable = false)
-    private AssetType assetType;
+    @Enumerated(EnumType.STRING)
+    protected AssetType assetType;
 
-    private RentalState rentalState;
+    protected RentalState rentalState;
 
     public Long getId() {
         return id;
@@ -37,5 +49,14 @@ public abstract class Asset {
 
     public void setRentalState(RentalState rentalState) {
         this.rentalState = rentalState;
+    }
+
+    @Override
+    public String toString() {
+        return "Asset{" +
+                "id=" + id +
+                ", assetType=" + assetType +
+                ", rentalState=" + rentalState +
+                '}';
     }
 }
