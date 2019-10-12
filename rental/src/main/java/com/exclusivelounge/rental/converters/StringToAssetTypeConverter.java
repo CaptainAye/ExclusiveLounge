@@ -6,6 +6,6 @@ import org.springframework.core.convert.converter.Converter;
 public class StringToAssetTypeConverter implements Converter<String, AssetType>{
     @Override
     public AssetType convert(String s) {
-        return AssetType.valueOf(s.toUpperCase());
+        return s != null && !s.isEmpty() ? AssetType.valueOf(s.toUpperCase()) : null;
     }
 }

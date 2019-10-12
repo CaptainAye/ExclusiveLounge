@@ -6,6 +6,6 @@ import org.springframework.core.convert.converter.Converter;
 public class AssetTypeToStringConverter implements Converter<AssetType, String> {
     @Override
     public String convert(AssetType assetType) {
-        return assetType.name();
+        return assetType != null ? assetType.name() : "";
     }
 }
