@@ -1,4 +1,4 @@
-package com.exclusivelounge.rental.domains.assets.model.entities;
+package com.exclusivelounge.rental.domains.assets.model.entities.brands;
 
 import com.exclusivelounge.rental.validation.annotations.IsValidYear;
 
@@ -79,5 +79,19 @@ public class BrandModel {
 
     public void setBrand(Brand brand) {
         this.brand = brand;
+    }
+
+    public String getName() {
+        return brand.getName() + modelName;
+    }
+
+    @Override
+    public String toString() {
+        return "BrandModel{" +
+                "id=" + id +
+                ", name='" + getName() +
+                ", yearStarted=" + yearStarted +
+                ", yearEnded=" + yearEnded +
+                '}';
     }
 }

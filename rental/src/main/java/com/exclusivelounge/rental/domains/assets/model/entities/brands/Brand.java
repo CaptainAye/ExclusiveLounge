@@ -1,4 +1,4 @@
-package com.exclusivelounge.rental.domains.assets.model.entities;
+package com.exclusivelounge.rental.domains.assets.model.entities.brands;
 
 import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
 
@@ -12,15 +12,20 @@ public class Brand {
     public Brand() {
     }
 
-    public Brand(String name, AssetType assetType) {
+    public Brand(Long id, String name, AssetType assetType) {
+        this.id = id;
         this.name = name;
         this.assetType = assetType;
+    }
+
+    public Brand(String name, AssetType assetType) {
+        this(null, name, assetType);
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
-    private long id;
+    private Long id;
 
     @Column(name = "BRAND_NAME", nullable = false, unique = true)
     private String name;
@@ -32,11 +37,11 @@ public class Brand {
     @OneToMany
     private List<BrandModel> models;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -19,7 +19,9 @@ public abstract class Asset {
         this.rentalState = rentalState;
     }
 
-
+    public Asset(RentalState rentalState) {
+        this.rentalState = rentalState;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -29,6 +31,7 @@ public abstract class Asset {
     @Enumerated(EnumType.STRING)
     protected AssetType assetType;
 
+    @Enumerated(EnumType.STRING)
     protected RentalState rentalState;
 
     public Long getId() {
@@ -50,6 +53,8 @@ public abstract class Asset {
     public void setRentalState(RentalState rentalState) {
         this.rentalState = rentalState;
     }
+
+    public abstract String getName();
 
     @Override
     public String toString() {

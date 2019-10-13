@@ -1,6 +1,6 @@
 package com.exclusivelounge.rental.domains.assets.model.entities;
 
-import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
+import com.exclusivelounge.rental.domains.assets.model.entities.brands.BrandModel;
 import com.exclusivelounge.rental.model.enumerations.RentalState;
 
 import static com.exclusivelounge.rental.domains.assets.model.enums.AssetType.*;
@@ -12,11 +12,10 @@ import javax.persistence.*;
 public class Car extends Vehicle{
 
     public Car() {
-        super();
     }
 
     public Car(BrandModel brandModel, CarCharacteristics carCharacteristics, RentalState rentalState) {
-        super(CAR, brandModel, rentalState);
+        super(brandModel, rentalState);
         this.carCharacteristics = carCharacteristics;
     }
 

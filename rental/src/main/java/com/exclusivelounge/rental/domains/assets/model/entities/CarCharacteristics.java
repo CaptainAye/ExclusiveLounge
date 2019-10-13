@@ -6,25 +6,25 @@ import java.util.List;
 
 @Embeddable
 public class CarCharacteristics {
-    private int madeYear;
-    private int horsePower;
+    private Integer madeYear;
+    private Integer horsePower;
     private String engineCapacity;
     @ElementCollection
     private List<String> equipment;
 
-    public int getMadeYear() {
+    public Integer getMadeYear() {
         return madeYear;
     }
 
-    public void setMadeYear(int madeYear) {
+    public void setMadeYear(Integer madeYear) {
         this.madeYear = madeYear;
     }
 
-    public int getHorsePower() {
+    public Integer getHorsePower() {
         return horsePower;
     }
 
-    public void setHorsePower(int horsePower) {
+    public void setHorsePower(Integer horsePower) {
         this.horsePower = horsePower;
     }
 

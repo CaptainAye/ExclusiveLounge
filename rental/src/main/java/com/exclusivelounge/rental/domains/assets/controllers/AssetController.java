@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/assets")
 public class AssetController {
@@ -20,9 +22,9 @@ public class AssetController {
         this.assetRepository = assetRepository;
     }
 
-    @GetMapping(path = "/{rentalState}/{assetType}")
-    public Iterable<Asset> getAvailableAssets(@PathVariable AssetType assetType, @PathVariable RentalState rentalState) {
-        return assetRepository.findAllByAssetTypeAndRentalState(assetType, rentalState);
+    @GetMapping(path = "/{assetType}")
+    public List<Asset> getAssets(@PathVariable AssetType assetType) {
+        return assetRepository.findAllByAssetTypeAndRentalState(assetType, RentalState.AVAILABLE);
     }
 
     @PostMapping (path = "/")
@@ -39,8 +41,6 @@ public class AssetController {
             throw new BrandTypeIncorrectException();
         }
     }
-
-
 
     @DeleteMapping(path = "/assets/{assetToDelete}")
     public ResponseEntity<Object> deleteRentalAsset(@PathVariable long assetToDelete) {
