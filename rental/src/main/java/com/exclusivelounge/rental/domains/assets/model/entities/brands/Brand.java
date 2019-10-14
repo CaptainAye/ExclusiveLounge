@@ -3,7 +3,9 @@ package com.exclusivelounge.rental.domains.assets.model.entities.brands;
 import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "BRAND")
@@ -34,8 +36,8 @@ public class Brand {
     @Enumerated(EnumType.STRING)
     private AssetType assetType;
 
-    @OneToMany
-    private List<BrandModel> models;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "brand", orphanRemoval = true)
+    private List<BrandModel> models = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -66,16 +68,44 @@ public class Brand {
     }
 
     public void setModels(List<BrandModel> models) {
-        this.models = models;
+        models.forEach(this::addModel);
     }
+
+    public void addModel(BrandModel model) {
+        models.add(model);
+        model.setBrand(this);
+    }
+
+    public void removeModel(BrandModel model) {
+        models.remove(model);
+        model.setBrand(null);
+    }
+
+
 
     @Override
     public String toString() {
         return "Brand{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name=" + name +
                 ", assetType=" + assetType +
                 ", models=" + models +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Brand brand = (Brand) o;
+        return Objects.equals(id, brand.id) &&
+                Objects.equals(name, brand.name) &&
+                assetType == brand.assetType &&
+                Objects.deepEquals(models, brand.models);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, assetType, models);
     }
 }

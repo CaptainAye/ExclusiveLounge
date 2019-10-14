@@ -2,7 +2,7 @@ package com.exclusivelounge.rental.domains.assets.controllers;
 
 import com.exclusivelounge.rental.domains.assets.model.entities.brands.Brand;
 import com.exclusivelounge.rental.domains.assets.model.enums.AssetType;
-import com.exclusivelounge.rental.domains.assets.services.BrandServiceImpl;
+import com.exclusivelounge.rental.domains.assets.services.BrandService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
@@ -31,7 +31,7 @@ class BrandControllerIntegrationTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private BrandServiceImpl brandService;
+    private BrandService brandService;
 
     private static final ObjectMapper jsonMapper = new ObjectMapper();
 

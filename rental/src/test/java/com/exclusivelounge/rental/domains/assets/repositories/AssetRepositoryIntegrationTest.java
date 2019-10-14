@@ -41,9 +41,10 @@ class AssetRepositoryIntegrationTest {
 
     private void setupAudi() {
         Brand audi = new Brand("Audi", CAR);
-        BrandModel audiA4 = new BrandModel( audi, "A4 B8", 2012, 2017);
-        BrandModel audiA5 = new BrandModel(audi, "A5 B8", 2018);
-        BrandModel audiA6 = new BrandModel(audi, "A5 B8", 2018);
+        BrandModel audiA4 = new BrandModel("A4 B8", 2012, 2017);
+        BrandModel audiA5 = new BrandModel("A5 B8", 2018);
+        BrandModel audiA6 = new BrandModel("A5 B8", 2018);
+        audi.setModels(Arrays.asList(audiA4, audiA5, audiA6));
         mockAudiA4 = new Car(audiA4,  new CarCharacteristics(), AVAILABLE);
         mockAudiA5 = new Car(audiA5, new CarCharacteristics(), RENT);
         mockAudiA6 = new Car(audiA6, new CarCharacteristics(), RESERVED);
@@ -58,8 +59,9 @@ class AssetRepositoryIntegrationTest {
 
     private void setupMercedes() {
         Brand mercedes = new Brand("Mercedes", CAR);
-        BrandModel mercedesCLA220 = new BrandModel(mercedes, "CLA 220d", 2017);
-        BrandModel mercedesGLS = new BrandModel(mercedes, "GLS", 2019);
+        BrandModel mercedesCLA220 = new BrandModel("CLA 220d", 2017);
+        BrandModel mercedesGLS = new BrandModel("GLS", 2019);
+        mercedes.setModels(Arrays.asList(mercedesCLA220, mercedesGLS));
         mockMercedesCLA220 = new Car(mercedesCLA220, new CarCharacteristics(), AVAILABLE);
         mockMercedesGLS = new Car(mercedesGLS, new CarCharacteristics(), RESERVED);
         entityManager.persist(mercedes);
@@ -71,7 +73,8 @@ class AssetRepositoryIntegrationTest {
 
     private void setupPlanes() {
         Brand boeing = new Brand("Boeing", PLANE);
-        BrandModel boeing767 = new BrandModel(boeing, "767", 1964);
+        BrandModel boeing767 = new BrandModel( "767", 1964);
+        boeing.addModel(boeing767);
         mockBoeing767 = new Plane(boeing767, AVAILABLE);
         entityManager.persist(boeing);
         entityManager.persist(boeing767);
@@ -80,7 +83,8 @@ class AssetRepositoryIntegrationTest {
 
     private void setupYacht() {
         Brand feadship = new Brand("Feadship", YACHT);
-        BrandModel feadshipNajiba = new BrandModel(feadship, "Najiba", 2019);
+        BrandModel feadshipNajiba = new BrandModel("Najiba", 2019);
+        feadship.addModel(feadshipNajiba);
         mockFeadshipNajiba = new Yacht(feadshipNajiba, AVAILABLE);
         entityManager.persist(feadship);
         entityManager.persist(feadshipNajiba);

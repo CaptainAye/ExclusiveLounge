@@ -3,6 +3,7 @@ package com.exclusivelounge.rental.domains.assets.model.entities.brands;
 import com.exclusivelounge.rental.validation.annotations.IsValidYear;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "BRAND_MODEL")
@@ -11,20 +12,28 @@ public class BrandModel {
     public BrandModel() {
     }
 
-    public BrandModel(Brand brand, String modelName, Integer yearStarted, Integer yearEnded) {
+    public BrandModel( String modelName, Integer yearStarted, Integer yearEnded) {
+        this(null, modelName, yearStarted, yearEnded);
+    }
+
+    public BrandModel( String modelName, Integer yearStarted) {
+        this(modelName, yearStarted, null);
+    }
+
+    public BrandModel(Long id, String modelName, Integer yearStarted, Integer yearEnded) {
         this.modelName = modelName;
         this.yearStarted = yearStarted;
         this.yearEnded = yearEnded;
-        this.brand = brand;
+        this.id = id;
     }
 
-    public BrandModel(Brand brand, String modelName, Integer yearStarted) {
-        this(brand, modelName, yearStarted, null);
+    public BrandModel(Long id, String modelName, Integer yearStarted) {
+        this(id, modelName, yearStarted, null);
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "MODEL_NAME", nullable = false)
     private String modelName;
@@ -38,7 +47,7 @@ public class BrandModel {
     private Integer yearEnded;
 
     @ManyToOne
-    @JoinColumn(name = "BRAND_ID", referencedColumnName = "ID", nullable = false)
+    @JoinColumn(name = "BRAND_ID", referencedColumnName = "ID", nullable = false, updatable = false)
     private Brand brand;
 
     public long getId() {
@@ -93,5 +102,22 @@ public class BrandModel {
                 ", yearStarted=" + yearStarted +
                 ", yearEnded=" + yearEnded +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BrandModel that = (BrandModel) o;
+        return id == that.id &&
+                Objects.equals(modelName, that.modelName) &&
+                Objects.equals(yearStarted, that.yearStarted) &&
+                Objects.equals(yearEnded, that.yearEnded) &&
+                Objects.equals(brand, that.brand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, modelName, yearStarted, yearEnded, brand);
     }
 }
